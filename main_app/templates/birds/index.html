@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/birds/bird-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Bird List</h1>
+  <img src="{% static 'images/angrybirdred.jpg' %}" alt="A happy bird" />
+  <img src="{% static 'images/angrybirdblack.jpg' %}" alt="A cool bird" />
+  <img src="{% static 'images/angrybirdgreen.jpg' %}" alt="A bird in a teacup" />
+  <img src="{% static 'images/angrybirdyellow.jpg' %}" alt="A bird in a box" />
+</section>
+
+<section class="card-container">
+  {% for bird in birds %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/angrybirdblue.jpg' %}" 
+            alt="A skater boy bird"
+          >
+        </div>
+        <h2 class="card-title">{{ bird.name }}</h2>
+        {% if bird.age > 0 %}
+          <p>A {{ bird.age }} year old Angry Bird</p>
+        {% else %}
+          <p>An Angry Chick.</p>
+        {% endif %}
+        <p><small>{{ bird.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
