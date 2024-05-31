@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/birds/bird-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="cat-container">
+  <div class="cat-img">
+    <img 
+      src="{% static 'images/angrybirdred.jpg' %}" 
+      alt="A skater boy bird"
+    >
+  </div>
+  <div class="cat-details">
+    <h1>{{ bird.name }}</h1>
+    {% if bird.age > 0 %}
+      <h2>A {{ bird.age }} year old bird.</h2>
+    {% else %}
+      <h2>A little chicklet.</h2>
+    {% endif %}
+    <p>{{ bird.description }}</p>
+  </div>
+</section>
+
+{% endblock %}
