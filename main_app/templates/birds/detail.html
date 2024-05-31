@@ -26,6 +26,10 @@
       <h2>A little chicklet.</h2>
     {% endif %}
     <p>{{ bird.description }}</p>
+    <div class="cat-actions">
+      <a href="{% url 'bird-update' bird.id %}" class='btn warn'>Edit</a>
+      <a href="{% url 'bird-delete' bird.id %}" class='btn danger'>Delete</a>
+    </div>
   </div>
 </section>
 
